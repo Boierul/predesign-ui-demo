@@ -1,8 +1,9 @@
-import type { AppProps } from "next/app"
-import { Inter as FontSans } from "@next/font/google"
-import { ThemeProvider } from "next-themes"
+import type {AppProps} from "next/app"
+import {Inter as FontSans} from "@next/font/google"
+import {ThemeProvider} from "next-themes"
 
 import "@/styles/globals.css"
+import {Toaster} from "@/components/ui/toaster";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -19,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				}
 			}`}</style>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Toaster/>
         <Component {...pageProps} />
       </ThemeProvider>
     </>

@@ -1,15 +1,18 @@
 import Head from "next/head"
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
-import { Layout } from "@/components/layout"
-import { buttonVariants } from "@/components/ui/button"
+import {siteConfig} from "@/config/site"
+import {Layout} from "@/components/layout"
+import {Button, buttonVariants} from "@/components/ui/button"
+import {useToast} from "@/hooks/use-toast"
 
 export default function IndexPage() {
+  const { toast } = useToast()
+
   return (
     <Layout>
       <Head>
-        <title>Next.js</title>
+        <title>Demo | Next.js</title>
         <meta
           name="description"
           content="Next.js template for building apps with Radix UI and Tailwind CSS"
@@ -45,6 +48,28 @@ export default function IndexPage() {
           >
             GitHub
           </Link>
+        </div>
+
+        {/*<div className="flex gap-4">*/}
+        {/*  <Link target="_blank"*/}
+        {/*        rel="noreferrer"*/}
+        {/*        className={buttonVariants({ size: "sm" })} href="">*/}
+        {/*    Button*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
+
+        <div className="flex gap-4">
+          <Button
+            variant="outline"
+            onClick={() => {
+              toast({
+                title: "Scheduled: Catch up",
+                description: "Friday, February 10, 2023 at 5:57 PM",
+              })
+            }}
+          >
+            Show Toast
+          </Button>
         </div>
       </section>
     </Layout>
